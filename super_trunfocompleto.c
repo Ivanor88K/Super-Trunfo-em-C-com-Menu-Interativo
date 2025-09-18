@@ -14,7 +14,7 @@ struct carta {
 
 int main() {
     struct carta carta1, carta2;
-    int atributo1, atributo2, escolha;
+    int atributo1, atributo2;
     float valor1_a1, valor2_a1, valor1_a2, valor2_a2;
 
     printf("Desafio Cartas Super Trunfo!\n");
@@ -80,12 +80,12 @@ int main() {
     printf("População: %d | Área: %.2f | PIB: %.2f | Pontos Turísticos: %d | Densidade: %.2f\n",
            carta2.populacao, carta2.area, carta2.pib, carta2.pontos_turisticos, media2);
 
-    // Escolha do primeiro atributo
+    // Escolha dos atributos
     printf("\nEscolha o primeiro atributo para comparar:\n");
     printf("1 - População\n2 - Área\n3 - PIB\n4 - Pontos Turísticos\n5 - Densidade Demográfica\n");
     scanf("%d", &atributo1);
 
-    // Escolha do segundo atributo (dinâmico)
+    // Menu dinâmico para o segundo atributo
     do {
         printf("\nEscolha o segundo atributo (diferente do primeiro):\n");
         for (int i = 1; i <= 5; i++) {
@@ -107,20 +107,50 @@ int main() {
 
     // Atribuição dos valores do primeiro atributo
     switch (atributo1) {
-        case 1: valor1_a1 = carta1.populacao; valor2_a1 = carta2.populacao; break;
-        case 2: valor1_a1 = carta1.area; valor2_a1 = carta2.area; break;
-        case 3: valor1_a1 = carta1.pib; valor2_a1 = carta2.pib; break;
-        case 4: valor1_a1 = carta1.pontos_turisticos; valor2_a1 = carta2.pontos_turisticos; break;
-        case 5: valor1_a1 = media1; valor2_a1 = media2; break;
+        case 1:
+            valor1_a1 = carta1.populacao;
+            valor2_a1 = carta2.populacao;
+            break;
+        case 2:
+            valor1_a1 = carta1.area;
+            valor2_a1 = carta2.area;
+            break;
+        case 3:
+            valor1_a1 = carta1.pib;
+            valor2_a1 = carta2.pib;
+            break;
+        case 4:
+            valor1_a1 = carta1.pontos_turisticos;
+            valor2_a1 = carta2.pontos_turisticos;
+            break;
+        case 5:
+            valor1_a1 = media1;
+            valor2_a1 = media2;
+            break;
     }
 
     // Atribuição dos valores do segundo atributo
     switch (atributo2) {
-        case 1: valor1_a2 = carta1.populacao; valor2_a2 = carta2.populacao; break;
-        case 2: valor1_a2 = carta1.area; valor2_a2 = carta2.area; break;
-        case 3: valor1_a2 = carta1.pib; valor2_a2 = carta2.pib; break;
-        case 4: valor1_a2 = carta1.pontos_turisticos; valor2_a2 = carta2.pontos_turisticos; break;
-        case 5: valor1_a2 = media1; valor2_a2 = media2; break;
+        case 1:
+            valor1_a2 = carta1.populacao;
+            valor2_a2 = carta2.populacao;
+            break;
+        case 2:
+            valor1_a2 = carta1.area;
+            valor2_a2 = carta2.area;
+            break;
+        case 3:
+            valor1_a2 = carta1.pib;
+            valor2_a2 = carta2.pib;
+            break;
+        case 4:
+            valor1_a2 = carta1.pontos_turisticos;
+            valor2_a2 = carta2.pontos_turisticos;
+            break;
+        case 5:
+            valor1_a2 = media1;
+            valor2_a2 = media2;
+            break;
     }
 
     // Comparação dos atributos
@@ -135,8 +165,8 @@ int main() {
     float soma1 = valor1_a1 + valor1_a2;
     float soma2 = valor2_a1 + valor2_a2;
 
-    // Resultado
-    printf("\n===== RESULTADO DA COMPARAÇÃO =====\n");
+    // Exibição do resultado
+    printf("===== RESULTADO DA COMPARAÇÃO =====\n");
     printf("Atributos escolhidos: %d e %d\n", atributo1, atributo2);
     printf("%s: %.2f + %.2f = %.2f\n", carta1.nome_cidade, valor1_a1, valor1_a2, soma1);
     printf("%s: %.2f + %.2f = %.2f\n", carta2.nome_cidade, valor2_a1, valor2_a2, soma2);
