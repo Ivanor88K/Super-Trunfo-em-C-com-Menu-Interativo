@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 struct carta {
     char carta;
@@ -88,6 +89,72 @@ int main() {
     printf("Pontos Turísticos: %d\n", carta2.pontos_turisticos);
     printf("Densidade Demográfica: %.2f hab/km²\n", media2);
 
+    int 
+    atributo1, atributo2;
+
+    // primeiro menu 
+    printf(" Escolha o primeiro atributo para comparar: \n");
+    printf("1- população\n2- Área\n3 -Pib\n4- Pontos turisticos\n5 - Densidade Demográfica\n");
+    scanf("%d", &atributo1);
+
+    // Segundo Menu
+    printf("Escolha o segundo atributo (diferente do primeiro: \n");
+    for (int i = 1; i <= 5; i++) {
+        if (i != atributo1) 
+    { switch (i) 
+    {
+    case 1: printf("%d - população\n", i); 
+        break;
+    case 2: printf("%d - Área\n", i);
+        break;
+    case 3: printf("%d - PIB\n", i);
+        break;
+    case 4: printf("%d - Pontos turisticos\n", i);
+        break;
+    case 5: printf("%d - Densidade Demográfica\n", i); 
+        break;    
+    default: printf(" Opção incorreta");
+        break;
+    }
+    }
+    }
+    scanf("%d", &atributo2);
+    if (atributo2 == atributo1 || atributo2 < 1 || atributo2 > 5) 
+    {
+        printf("Atributo invalido, tente novamente. \n");
+    }
+     while (atributo2 == atributo1 || atributo2 < 1 || atributo2 > 5);
+
+     // comparação de atributo
+    float valor1_a1 = getValor(carta1, atributo1, media1);
+    float valor2_a1 = getValor(carta2, atributo1, media2);
+    float valor1_a2 = getValor(carta1, atributo2, media1);
+    float valor2_a2 = getValor(carta2, atributo2, media2);
+
+    int pontos1 = 0, pontos2 = 0;
+    pontos1 += (atributo1 == 5) ? (valor1_a1 , valor2_a1) : (valor1_a1 > valor2_a1);
+    pontos2 += (atributo1 == 5) ? (valor2_a1 , valor1_a1) : (valor2_a1 > valor1_a1);
+
+    pontos1 += (atributo2 == 5) ? (valor1_a2 < valor2_a2) : (valor1_a2 > valor2_a2);
+    pontos2 += (atributo2 == 5) ? (valor2_a2 < valor1_a2) : (valor2_a2 > valor1_a2);
+
+    float soma1 = valor1_a1 + valor1_a2;
+    float soma2 = valor2_a1 + valor2_a2;
+
+    //Resultado
+
+    printf("\n===== RESULTADO DA COMPARAÇÃO =====\n");
+    printf("Atributos escolhidos: %d e %d\n", atributo1, atributo2);
+    printf("%s: %.2f + %.2f = %.2f\n", carta1.nome_cidade, valor1_a1, valor1_a2, soma1);
+    printf("%s: %.2f + %.2f = %.2f\n", carta2.nome_cidade, valor2_a1, valor2_a2, soma2);
+
+    if (soma1 == soma2) {
+        printf("Empate!\n");
+    } else {
+        printf("Vencedor: %s\n", (soma1 > soma2) ? carta1.nome_cidade : carta2.nome_cidade);
+    }
+
+     
     // Menu de comparação
     do {
         printf("\n===== MENU DE COMPARAÇÃO =====\n");
