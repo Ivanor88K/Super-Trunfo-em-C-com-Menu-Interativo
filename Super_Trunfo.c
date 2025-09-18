@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+// Estrutura que representa uma carta com dados de uma cidade
 struct carta {
     char estado;
     char codigo[4];
@@ -11,15 +11,17 @@ struct carta {
     float pib;
     int pontos_turisticos;
 };
+// Declaração das duas cartas que serão comparadas
 
 int main() {
     struct carta carta1, carta2;
+     // Variáveis para armazenar os atributos escolhidos
     int atributo1, atributo2, escolha;
     float valor1_a1, valor2_a1, valor1_a2, valor2_a2;
 
     printf("Desafio Cartas Super Trunfo!\n");
 
-    // Cadastro da carta 1
+    // Cadastro manual das cartas pelo usuário
     printf("\nCarta 1\n");
     printf("Digite o estado: ");
     scanf(" %c", &carta1.estado);
